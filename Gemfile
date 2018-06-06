@@ -66,3 +66,5 @@ gem 'omniauth-twitter'
 gem "font-awesome-rails"
 
 gem 'mysql2'
+
+gem 'ransack'

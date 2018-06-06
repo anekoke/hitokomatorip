@@ -8,4 +8,14 @@
 </div>
 <% end %>
 
-<p>テスト</p>
+<%= search_form_for @search do |f| %>
+  <form class="form-inline">
+    <div class="form-group">
+      <%= f.text_field :name_or_content_cont_any, class: "form-control", placeholder: "気になるひとコマを探そう" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "検索" %>
+    </div>
+  </form>
+<% end %> 
+
