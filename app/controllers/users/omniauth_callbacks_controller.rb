@@ -16,7 +16,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
       sign_in_and_redirect @user, :event => :authentication
     else 
-      flash[:danger] = I18n.t('devise.omniauth_callbacks.alert', kind: provider.capitalize)
+      flash[:alert] = I18n.t('devise.omniauth_callbacks.failure', kind: provider.capitalize)
       session["devise.#{provider}_data"] = request.env['omniauth.auth'].except("extra")
       redirect_to root_url
     end

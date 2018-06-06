@@ -4,6 +4,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  before_action :configure_account_update_params, only: [:update]
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -49,6 +51,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
+  
+  def configure_account_update_params
+     devise_parameter_sanitizer.permit(:account_update, keys: [:name]) 
+     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname]) 
+     devise_parameter_sanitizer.permit(:account_update, keys: [:image_url])
+     devise_parameter_sanitizer.permit(:account_update, keys: [:twitter_url])
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

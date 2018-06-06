@@ -49,7 +49,7 @@ ja:
       send_paranoid_instructions: 'アカウントが存在する場合、ロックを解除する方法をメールでご連絡します'
     omniauth_callbacks:
       success: '%{kind} でログインしました。'
-      failure: '%{kind} でログインできませんでした。理由："%{reason}".'
+      failure: '%{kind} にログインできませんでした。'
     mailer:
       confirmation_instructions:
         subject: 'アカウントの登録方法'
