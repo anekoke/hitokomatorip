@@ -1,0 +1,15 @@
+<div>
+  <h2><%= @frame.name %></h2>
+
+  <div class="text-center">
+    <img src="/images/<%= @frame.image %>" alt="<% @frame.name %>">
+  </div>
+  
+  <div>
+    <%= simple_format(h @frame.content) %>
+  </div>
+  
+  <div>
+    <p>GoogleMapを表示したいです</p>
+  </div>
+</div>
