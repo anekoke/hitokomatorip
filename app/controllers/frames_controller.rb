@@ -1,5 +1,12 @@
 class FramesController < ApplicationController
   
+  def index
+    @frames = Frame.all
+    @search = Frame.ransack(params[:q])
+    @results = @search.result
+    
+  end
+  
   def show
     set_frame
   end
