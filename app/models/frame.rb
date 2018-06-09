@@ -6,4 +6,9 @@ class Frame < ApplicationRecord
   validates :longitude, presence: true
   validates :image, presence:true
   
+  has_many :relationships
+  has_many :users, through: :relationships
+  has_many :interests
+  has_many :interest_users, through: :interests, class_name: 'User', source: :user
+  
 end

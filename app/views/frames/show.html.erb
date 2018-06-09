@@ -3,6 +3,9 @@
 
   <div class="text-center">
     <img src="/images/<%= @frame.image %>" alt="<% @frame.name %>">
+    <% if user_signed_in? %>
+      <%= render 'relationships/interest_button', frame: @frame %>
+    <% end %>
   </div>
   
   <div>
@@ -45,4 +48,19 @@
   </style>
   <div id="map"></div>
   
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="interest-users">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          きになるしたユーザ
+        </div>
+        <div class="panel-body">
+          <% @interest_users.each do |user| %>
+            <%= link_to user.name, user_path(user) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

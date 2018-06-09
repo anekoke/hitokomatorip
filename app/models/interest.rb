@@ -1,0 +1,2 @@
+class Interest < Relationship
+end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'users/index'
 
   get 'users/show'
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   
   resources :frames
+  resources :relationships, only: [ :create, :destroy ]
   
 end

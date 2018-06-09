@@ -1,14 +1,14 @@
 class FramesController < ApplicationController
   
   def index
-    @frames = Frame.all
     @search = Frame.ransack(params[:q])
-    @results = @search.result.order('updated_at DESC').page(params[:page]).per(8)
+    @frames = @search.result.order('updated_at DESC').page(params[:page]).per(8)
     
   end
   
   def show
     set_frame
+    @interest_users = @frame.interest_users
   end
   
   def new

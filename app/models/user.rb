@@ -20,12 +20,32 @@ class User < ApplicationRecord
       )
     end
 
-     user
+    user
   end
+  
+  has_many :relationships
+  has_many :frames, through: :relationships
+  has_many :interests
+  has_many :interest_frames, through: :interests, class_name: 'Frame', source: :frame
+  
+  def interest(frame)
+    self.interests.find_or_create_by(frame_id: frame.id)
+  end
+  
+  def uninterest(frame)
+    interest = self.interests.find_by(frame_id: frame.id)
+    interest.destroy if interest
+  end
+  
+  def interest?(frame)
+    self.interest_frames.include?(frame)
+  end
+  
 
   private
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
   end
+  
 end

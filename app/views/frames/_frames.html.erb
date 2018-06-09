@@ -7,6 +7,11 @@
         </div>
         <div class="panel-body">
           <p class="text-center"><%= link_to frame.name, frame_path(frame) %></p>
+          <div class="button text-center">
+            <% if user_signed_in? %>
+              <%= render 'relationships/interest_button', frame: frame %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

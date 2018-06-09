@@ -1,4 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
 <p>ようこそ <%= current_user.nickname %>さん</p>
 <img src="<%= current_user.image_url %>">
+
+<div class="text-center">
+  <h3>きになるリスト <%= @count_interest %></h3>
+  <%= render 'frames/frames', frames: @frames %>
+</div>

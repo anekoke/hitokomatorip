@@ -7,5 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @frames = @user.frames.uniq
+    @count_interest = @user.interest_frames.count
   end
+  
 end

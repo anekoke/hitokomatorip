@@ -1,0 +1,19 @@
+<% if current_user.interest?(frame) %>
+  <%= form_tag(relationship_path(frame.id), method: :delete) do %>
+    <%= hidden_field_tag :frame_id, frame.id %>
+    <%= hidden_field_tag :type, 'Interest' %>
+    <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+      <%= fa_icon 'star fa-fw', text: 'きになる' %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= form_tag(relationships_path) do %>
+    <%= hidden_field_tag :frame_id, frame.id %>
+    <%= hidden_field_tag :type, 'Interest' %>
+    <%= button_tag(type: "submit", class: "btn btn-default") do %>
+      <%= fa_icon 'star fa-fw', text: 'きになる' %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
