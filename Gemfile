@@ -76,3 +76,5 @@ gem 'kaminari'
 gem 'cancancan'
 
 gem 'rails_admin'
+
+gem 'dotenv-rails'
