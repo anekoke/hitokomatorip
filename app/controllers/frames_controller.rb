@@ -9,6 +9,7 @@ class FramesController < ApplicationController
   def show
     set_frame
     @interest_users = @frame.interest_users
+    @visit_users = @frame.visit_users
   end
   
   def new

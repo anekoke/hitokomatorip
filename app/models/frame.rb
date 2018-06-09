@@ -10,5 +10,7 @@ class Frame < ApplicationRecord
   has_many :users, through: :relationships
   has_many :interests
   has_many :interest_users, through: :interests, class_name: 'User', source: :user
+  has_many :visits
+  has_many :visit_users, through: :visits, class_name: 'User', source: :user
   
 end

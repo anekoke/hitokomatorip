@@ -5,6 +5,7 @@
     <img src="/images/<%= @frame.image %>" alt="<% @frame.name %>">
     <% if user_signed_in? %>
       <%= render 'relationships/interest_button', frame: @frame %>
+      <%= render 'relationships/visit_button', frame: @frame %>
     <% end %>
   </div>
   
@@ -62,5 +63,21 @@
       </div>
     </div>
   </div>
+
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="visit-users">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          いったよしたユーザ
+        </div>
+        <div class="panel-body">
+          <% @visit_users.each do |user| %>
+            <%= link_to user.name, user_path(user) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>

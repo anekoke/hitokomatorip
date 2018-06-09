@@ -1,0 +1,2 @@
+class Visit < Relationship
+end

@@ -27,6 +27,8 @@ class User < ApplicationRecord
   has_many :frames, through: :relationships
   has_many :interests
   has_many :interest_frames, through: :interests, class_name: 'Frame', source: :frame
+  has_many :visits
+  has_many :visit_frames, through: :visits, class_name: 'Frame', source: :frame
   
   def interest(frame)
     self.interests.find_or_create_by(frame_id: frame.id)
@@ -39,6 +41,19 @@ class User < ApplicationRecord
   
   def interest?(frame)
     self.interest_frames.include?(frame)
+  end
+  
+  def visit(frame)
+    self.visits.find_or_create_by(frame_id: frame.id)
+  end
+  
+  def unvisit(frame)
+    visit = self.visits.find_by(frame_id: frame.id)
+    visit.destroy if visit
+  end
+  
+  def visit?(frame)
+    self.visit_frames.include?(frame)
   end
   
 
