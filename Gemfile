@@ -72,3 +72,7 @@ gem 'ransack'
 gem 'geocoder'
 
 gem 'kaminari'
+
+gem 'cancancan'
+
+gem 'rails_admin'
