@@ -1,6 +1,6 @@
 class FramesController < ApplicationController
   
-  before_action :require_user_admin, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy]
   
   def index
     @search = Frame.ransack(params[:q])
