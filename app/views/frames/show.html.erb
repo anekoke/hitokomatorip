@@ -1,8 +1,11 @@
-<div>
+<div class="row">
   <h2><%= @frame.name %></h2>
 
   <div class="text-center">
     <img src="/images/<%= @frame.image %>" alt="<% @frame.name %>">
+  </div>
+  
+  <div class="text-center">
     <% if user_signed_in? %>
       <%= render 'relationships/interest_button', frame: @frame %>
       <%= render 'relationships/visit_button', frame: @frame %>
@@ -49,30 +52,30 @@
   </style>
   <div id="map"></div>
   
-  <div class="col-md-3 col-sm-6 col-xs-12">
+  <div class="col-md-6 col-xs-12 text-center">
     <div class="interest-users">
       <div class="panel panel-default">
-        <div class="panel-heading text-center">
+        <div class="panel-heading">
           きになるしたユーザ
         </div>
-        <div class="panel-body">
+        <div class="panel-body text-left">
           <% @interest_users.each do |user| %>
-            <%= link_to user.name, user_path(user) %>
+            <img src="<%= user.image_url %>" alt="<% user.name %>" ><%= link_to user.name, user_path(user) %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-3 col-sm-6 col-xs-12">
+  <div class="col-md-6 col-xs-12 text-center">
     <div class="visit-users">
       <div class="panel panel-default">
-        <div class="panel-heading text-center">
+        <div class="panel-heading">
           いったよしたユーザ
         </div>
-        <div class="panel-body">
+        <div class="panel-body text-left">
           <% @visit_users.each do |user| %>
-            <%= link_to user.name, user_path(user) %>
+            <img src="<%= user.image_url %>"  alt="<% user.name %>"><%= link_to user.name, user_path(user) %>
           <% end %>
         </div>
       </div>

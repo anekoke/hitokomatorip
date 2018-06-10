@@ -1,0 +1,18 @@
+<div class="row">
+  <div class ="text-center" id="user">
+    <img src="<%= current_user.image_url %>">
+    <h3><%= current_user.name %></h3>
+    <h4><%= fa_icon "twitter fa-fw" %><%= link_to current_user.nickname, current_user.twitter_url %></h4>
+  </div>
+  
+  <div>
+    <ul class="nav nav-tabs nav-justified">
+      <li class="<%= 'active' if current_page?(interest_user_path(@user)) %>"><%= link_to interest_user_path(@user) do %>きになる <span class="badge"><%= @count_interest %></span><% end %></li>
+      <li class="<%= 'active' if current_page?(visit_user_path(@user)) %>"><%= link_to visit_user_path(@user) do %>いったよ <span class="badge"><%= @count_visit %></span><% end %></li>
+    </ul>
+    <%= render 'frames/frames', frames: @visit %>
+  </div>
+  <div class="text-center">
+    <%= paginate @visit %> 
+  </div>  
+</div>

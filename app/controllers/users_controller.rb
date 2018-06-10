@@ -1,15 +1,26 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show, :interest, :visit]
   
   def index
-    @users = Users.all
+
   end
 
   def show
     @user = current_user
-    @frames = @user.frames.uniq
-    @count_interest = @user.interest_frames.count
-    @count_visit = @user.visit_frames.count
+    @frames = @user.frames.order('created_at DESC').page(params[:page]).per(8)
+    count(@user)
   end
   
+  def interest
+    @user = current_user
+    @interest = @user.interest_frames.order('updated_at DESC').page(params[:page]).per(8)
+    count(@user)
+  end
+  
+  def visit
+    @user = current_user
+    @visit = @user.visit_frames.order('updated_at DESC').page(params[:page]).per(8)
+    count(@user)
+  end
+
 end

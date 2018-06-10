@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   root to: "frames#index"
   
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    member do
+      get :interest
+      get :visit
+    end
+  end
   
   resources :frames
   resources :relationships, only: [ :create, :destroy ]
