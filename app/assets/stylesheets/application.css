@@ -69,3 +69,9 @@ footer img {
   letter-spacing: 0.15em;
   text-shadow: gray 0.2em 0.2em 0.1em;
 }
+
+/* button */
+.frame .pannel-body .buttons {
+  display: inline-block;
+  margin: 10px 10px;
+}

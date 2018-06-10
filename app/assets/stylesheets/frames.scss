@@ -1,3 +1,32 @@
 // Place all the styles related to the Frames controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 全体 */
+#frame_panel {
+  margin: 20px auto;
+}
+
+/* button */
+.buttons form {
+  display: inline-block;
+  margin: 10px 10px;
+}
+
+/* content */
+#content {
+  margin: 20px auto;
+}
+
+/* map */
+#map {
+  margin: 50px auto;
+}
+
+/* panel */
+.panel .panel-body img {
+  border-radius: 24px;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}

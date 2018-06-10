@@ -4,7 +4,7 @@ class FramesController < ApplicationController
   
   def index
     @search = Frame.ransack(params[:q])
-    @frames = @search.result.order('updated_at DESC').page(params[:page]).per(8)
+    @frames = @search.result.order('updated_at DESC').page(params[:page]).per(6)
     
   end
   
