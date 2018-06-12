@@ -91,9 +91,4 @@ Rails.application.configure do
   
   config.action_mailer.default_url_options = { :host => 'http://hitokomatorip.herokuapp.com' }
     
-    config.omniauth :twitter, ENV[ 'TWITTER_CONSUMER_KEY' ], ENV[ 'TWITTER_CONSUMER_SECRET' ]
-      {
-        image_size: 'original'
-      }
-  
 end
