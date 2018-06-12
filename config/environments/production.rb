@@ -88,4 +88,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  config.action_mailer.default_url_options = { :host => 'http://hitokomatorip.herokuapp.com' }
+  
+  config.omniauth :twitter, ENV[ 'TWITTER_CONSUMER_KEY' ], ENV[ 'TWITTER_CONSUMER_SECRET' ]
+    {
+      image_size: 'original'
+    }
 end
